@@ -10,4 +10,6 @@ public interface PatientService {
     List<Patient> getAllPatients();
 
     Patient getPatientById(int id);
+
+    Patient addPatient(Patient patient);
 }

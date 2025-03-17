@@ -20,5 +20,9 @@ public class PatientServiceImpl implements PatientService {
     public Patient getPatientById(int id){
         return repo.findById(id).orElse(null);
     }
+    @Override
+    public Patient addPatient(Patient patient){
+        return repo.save(patient);
+    }
 
 }

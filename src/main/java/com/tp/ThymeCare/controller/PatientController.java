@@ -3,10 +3,7 @@ package com.tp.ThymeCare.controller;
 import com.tp.ThymeCare.model.Patient;
 import com.tp.ThymeCare.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,9 @@ public class PatientController {
     @GetMapping("/patients/{id}")
     public Patient getPatientById(@PathVariable int id){
         return service.getPatientById(id);
+    }
+    @PostMapping("/patients")
+    public Patient addPatient(@RequestBody Patient patient){
+        return service .addPatient(patient);
     }
 }
