@@ -28,10 +28,9 @@ ThymeCare is a web-based Java application for managing patient records. Built us
 ![img.png](images%2Fimg.png)
 ![img.png](images/img.png)
 
-### **3 DELETE A Patients (Delete)**
-![img_3.png](images%2Fimg.png)
-![img_4.png](images/img.png)
-
+### **3 DELETE A Patients (Delete)**!
+[img_3.png](images%2Fimg_3.png)
+![img_4.png](images%2Fimg_4.png)
 
 
 
