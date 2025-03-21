@@ -12,4 +12,8 @@ public interface PatientService {
     Patient getPatientById(int id);
 
     Patient addPatient(Patient patient);
+
+    Patient updatePatient(Patient patient);
+
+    void deletePatient(int id);
 }
