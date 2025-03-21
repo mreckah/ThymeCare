@@ -41,4 +41,17 @@ public class PatientController {
         patientService.addPatient(patient);
         return "redirect:/patients";
     }
+    @PutMapping("/{id}")
+    public String updatePatient(@PathVariable @Valid @ModelAttribute Patient patient, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "create";
+        }
+        patientService.updatePatient(patient);
+        return "redirect:/patients";
+    }
+    @DeleteMapping("/{id}")
+    public String deletePatient(@PathVariable int id) {
+        patientService.deletePatient(id);
+        return "redirect:/patients";
+    }
 }

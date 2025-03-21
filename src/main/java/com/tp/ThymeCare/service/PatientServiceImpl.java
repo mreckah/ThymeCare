@@ -30,8 +30,7 @@ public class PatientServiceImpl implements PatientService {
     }
     @Override
     public void deletePatient(int id){
-        Patient patient = repo.findById(id).orElse(null);
-        repo.delete(patient);
+        repo.findById(id).ifPresent(patient -> repo.delete(patient));
     }
 
 }
