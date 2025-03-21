@@ -2,27 +2,43 @@ package com.tp.ThymeCare.controller;
 
 import com.tp.ThymeCare.model.Patient;
 import com.tp.ThymeCare.service.PatientService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/")
+@Controller
+@RequestMapping("/patients")
 public class PatientController {
-    @Autowired
-    private PatientService service;
 
-    @GetMapping("/patients")
-    public List<Patient> getPatients(){
-        return service.getAllPatients();
+    private final PatientService patientService;
+
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
     }
-    @GetMapping("/patients/{id}")
-    public Patient getPatientById(@PathVariable int id){
-        return service.getPatientById(id);
+
+    @GetMapping("/new")
+    public String showPatientForm(Model model) {
+        model.addAttribute("patient", new Patient());
+        return "create";
     }
-    @PostMapping("/patients")
-    public Patient addPatient(@RequestBody Patient patient){
-        return service .addPatient(patient);
+
+    @GetMapping
+    public String showPatientList(Model model) {
+        List<Patient> patients = patientService.getAllPatients();
+        model.addAttribute("patients", patients);
+        return "index";
+    }
+
+    @PostMapping("/new")
+    public String submitPatientForm(@Valid @ModelAttribute Patient patient, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "create";
+        }
+        patientService.addPatient(patient);
+        return "redirect:/patients";
     }
 }

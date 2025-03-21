@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Patient</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="my-4">Add New Patient</h1>
+
+    <!-- Form -->
+    <form th:action="@{/patients/new}" th:object="${patient}" method="post">
+
+        <!-- Patient Name -->
+        <div class="form-group">
+            <label for="name">Patient Name</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" required>
+            <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+
+        <!-- Date of Admission -->
+        <div class="form-group">
+            <label for="date">Date of Admission</label>
+            <input type="date" id="date" class="form-control" th:field="*{date}" required>
+            <div class="text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+        </div>
+
+        <!-- Sick -->
+        <div class="form-group">
+            <label for="sick">Is Patient Sick?</label>
+            <select id="sick" class="form-control" th:field="*{sick}" required>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <div class="text-danger" th:if="${#fields.hasErrors('sick')}" th:errors="*{sick}"></div>
+        </div>
+
+        <!-- Patient Score -->
+        <div class="form-group">
+            <label for="score">Patient Score</label>
+            <input type="number" id="score" class="form-control" th:field="*{score}" min="0" max="10" required>
+            <div class="text-danger" th:if="${#fields.hasErrors('score')}" th:errors="*{score}"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Add Patient</button>
+    </form>
+
+    <br>
+    <a href="/" class="btn btn-secondary">Back to List</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
