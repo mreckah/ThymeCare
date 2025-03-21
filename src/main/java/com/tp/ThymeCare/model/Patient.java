@@ -11,7 +11,7 @@ import java.util.Date;
 @Data @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
