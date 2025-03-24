@@ -1,5 +1,25 @@
 # ThymeCare - Patient Management System
 
+<h1 align="center">
+  <a href="https://github.com/mreckah/ThymeCare">
+    <img src="https://raw.githubusercontent.com/mreckah/ThymeCare/master/src/main/resources/images/img_16.png" alt="Project Image" style="max-width: 300px; border-radius: 10px;">
+  </a>
+</h1>
+<p align="center">
+  &nbsp; 
+  <a target="_blank" href="https://www.linkedin.com/in/nabbar-oussama/">
+    <img height="20" src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" />
+  </a>
+  <a href="mailto:m.reckahwalt@gmail.com" target="_blank" onclick="window.open(this.href,'_blank'); return false;">
+    <img height="20" src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" alt="Gmail Badge" />
+  </a>
+  <a target="_blank" href="https://github.com/mreckah/ThymeCare">
+    <img height="20" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+  </a>
+</p>
+
+
+
 ## 📌 Project Overview
 ThymeCare is a web-based Java application for managing patient records. Built using **Spring MVC, Thymeleaf, and Spring Data JPA**, it provides functionalities for storing and retrieving patient data efficiently.
 
