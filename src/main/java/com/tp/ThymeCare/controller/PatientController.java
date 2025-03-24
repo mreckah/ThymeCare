@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class  PatientController{
     PatientRepo repo;
 
-    @GetMapping("/index")
+    @GetMapping("/user/index")
     public String index(Model model,
                         @RequestParam(name="page",defaultValue = "0") int p,
-                        @RequestParam(name="size",defaultValue = "4") int s,
+                        @RequestParam(name="size",defaultValue = "6") int s,
                         @RequestParam(name="keyword",defaultValue = "")String kw
     )
     {
@@ -32,34 +32,33 @@ public class  PatientController{
         model.addAttribute("keyword",kw);
         return "patients";
     }
-    @GetMapping("/delete")
+    @GetMapping("/admin/delete")
     public String delete(int id){
         repo.deleteById(id);
-        return "redirect:/index";
-                //?page="+p+"&keyword="+kw;
+        return "redirect:/user/index";
     }
     @GetMapping("/")
     public String home(){
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
-    @GetMapping("/form")
+    @GetMapping("/admin/form")
     public String formPatient(Model model){
         model.addAttribute("patient", new Patient());
         return "form";
     }
-    @PostMapping("/save")
+    @PostMapping("/admin/save")
     public String save(Model model,Patient patient){
         repo.save(patient);
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
-    @GetMapping("/edit/{id}")
+    @GetMapping("/admin/edit/{id}")
     public String edit(Model model, @PathVariable("id") int id) {
         Patient patient = repo.findById(id).orElse(null);
         if (patient != null) {
             model.addAttribute("patient", patient);
             return "edit";
         }
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
 }
