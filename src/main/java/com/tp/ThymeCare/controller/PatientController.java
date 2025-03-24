@@ -19,7 +19,7 @@ public class  PatientController{
 
     @GetMapping("/index")
     public String index(Model model,
-                        @RequestParam(name="page",defaultValue = "1") int p,
+                        @RequestParam(name="page",defaultValue = "0") int p,
                         @RequestParam(name="size",defaultValue = "4") int s,
                         @RequestParam(name="keyword",defaultValue = "")String kw
     )
@@ -32,8 +32,13 @@ public class  PatientController{
         return "patients";
     }
     @GetMapping("/delete")
-    public String delete(int id,String kw,int p){
+    public String delete(int id){
         repo.deleteById(id);
-        return "redirect:/index?page="+p+"&keyword="+kw;
+        return "redirect:/index";
+                //?page="+p+"&keyword="+kw;
+    }
+    @GetMapping("/")
+    public String home(){
+        return "redirect:/index";
     }
 }
