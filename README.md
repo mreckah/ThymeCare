@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <a href="https://github.com/mreckah">
-    <img src="![img_16.png](images%2Fimg_16.png)" alt="ThymeCare App" style="max-width: 300px; border-radius: 10px;">
+    <img src="images/img_16.png" alt="ThymeCare App" style="max-width: 300px; border-radius: 10px;">
   </a>
 </h1>
 <p align="center">
@@ -13,7 +13,7 @@
   <a href="mailto:m.reckahwalt@gmail.com" target="_blank" onclick="window.open(this.href,'_blank'); return false;">
     <img height="20" src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" alt="Gmail Badge" />
   </a>
-  <a target="_blank" href="https://github.com/mreckah/ThymeCare">
+  <a target="_blank" href="https://github.com/mreckah">
     <img height="20" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
   </a>
 </p>
