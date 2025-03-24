@@ -13,21 +13,31 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         return new InMemoryUserDetailsManager(
                 User.withUsername("mreckah").password(passwordEncoder.encode("pass")).roles("USER").build(),
-                User.withUsername("oussama").password(passwordEncoder.encode("pass")).roles("ADMIN","USER").build()
+                User.withUsername("oussama").password(passwordEncoder.encode("pass")).roles("ADMIN", "USER").build()
         );
     }
+
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login").permitAll();
-        http.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER");
-        http.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN");
-        http.authorizeHttpRequests().anyRequest().authenticated();
+        http.formLogin();
+                //.loginPage("/login")
+                //.permitAll()
+                //.defaultSuccessUrl("/index", true);
+
+        http.authorizeHttpRequests()
+                .requestMatchers("/webjars/**", "/h2-console/**").permitAll()
+                .requestMatchers("/user/**").hasRole("USER")
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated();
+
         http.exceptionHandling().accessDeniedPage("/denied");
 
         return http.build();
