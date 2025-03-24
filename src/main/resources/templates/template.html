@@ -29,7 +29,7 @@
                         Patients
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="patientsDropdown">
-                        <li><a class="dropdown-item" th:href="@{/admin/form}">Add</a></li>  <!-- ✅ FIXED -->
+                        <li th:if="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')}"><a class="dropdown-item" th:href="@{/admin/form}">Add</a></li>  <!-- ✅ FIXED -->
                         <li><a class="dropdown-item" href="#">Search</a></li>
                     </ul>
                 </li>

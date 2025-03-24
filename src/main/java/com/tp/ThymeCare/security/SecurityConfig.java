@@ -28,6 +28,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER");
         http.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN");
         http.authorizeHttpRequests().anyRequest().authenticated();
+        http.exceptionHandling().accessDeniedPage("/denied");
 
         return http.build();
     }
