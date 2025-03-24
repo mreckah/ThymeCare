@@ -1,8 +1,8 @@
 # ThymeCare - Patient Management System
 
 <h1 align="center">
-  <a href="https://github.com/mreckah/ThymeCare">
-    <img src="https://raw.githubusercontent.com/mreckah/ThymeCare/master/src/main/resources/images/img_16.png" alt="Project Image" style="max-width: 300px; border-radius: 10px;">
+  <a href="https://github.com/mreckah">
+    <img src="![img_16.png](images%2Fimg_16.png)" alt="ThymeCare App" style="max-width: 300px; border-radius: 10px;">
   </a>
 </h1>
 <p align="center">
