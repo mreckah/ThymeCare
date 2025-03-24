@@ -34,8 +34,12 @@
                     <td th:text="${patient.sick}"></td>
                     <td th:text="${patient.score}"></td>
                     <td>
+                        <a th:href="@{'/edit/' +${patient.id}}" class="btn btn-info ms-0">
+                        <i class="bi bi-pencil-fill"></i></a>
+                    </td>
+                    <td>
                         <a onclick="return confirm('Click to confirm')" th:href="@{delete(id=${patient.id}, keyword=${keyword}, page=${currentPage})}"
-                           class="btn btn-danger">Delete
+                           class="btn btn-danger ms-0">
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>

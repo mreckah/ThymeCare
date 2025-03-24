@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -45,4 +47,19 @@ public class  PatientController{
         model.addAttribute("patient", new Patient());
         return "form";
     }
+    @PostMapping("/save")
+    public String save(Model model,Patient patient){
+        repo.save(patient);
+        return "redirect:/index";
+    }
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable("id") int id) {
+        Patient patient = repo.findById(id).orElse(null);
+        if (patient != null) {
+            model.addAttribute("patient", patient);
+            return "edit";
+        }
+        return "redirect:/index";
+    }
+
 }

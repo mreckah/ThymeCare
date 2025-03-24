@@ -1,11 +1,9 @@
 package com.tp.ThymeCare.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,6 +15,8 @@ public class Patient {
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
     private String sick;
     private int score;
