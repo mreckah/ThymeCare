@@ -1,57 +1,32 @@
 package com.tp.ThymeCare.controller;
 
 import com.tp.ThymeCare.model.Patient;
-import com.tp.ThymeCare.service.PatientService;
-import jakarta.validation.Valid;
+import com.tp.ThymeCare.repository.PatientRepo;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 
 @Controller
-@RequestMapping("/patients")
-public class PatientController {
+@AllArgsConstructor
+public class  PatientController{
+    PatientRepo repo;
 
-    private final PatientService patientService;
-
-    public PatientController(PatientService patientService) {
-        this.patientService = patientService;
-    }
-
-    @GetMapping("/new")
-    public String showPatientForm(Model model) {
-        model.addAttribute("patient", new Patient());
-        return "create";
-    }
-
-    @GetMapping
-    public String showPatientList(Model model) {
-        List<Patient> patients = patientService.getAllPatients();
-        model.addAttribute("patients", patients);
-        return "index";
-    }
-
-    @PostMapping("/new")
-    public String submitPatientForm(@Valid @ModelAttribute Patient patient, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "create";
-        }
-        patientService.addPatient(patient);
-        return "redirect:/patients";
-    }
-    @PutMapping("/{id}")
-    public String updatePatient(@PathVariable @Valid @ModelAttribute Patient patient, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "create";
-        }
-        patientService.updatePatient(patient);
-        return "redirect:/patients";
-    }
-    @DeleteMapping("/{id}")
-    public String deletePatient(@PathVariable int id) {
-        patientService.deletePatient(id);
-        return "redirect:/patients";
+    @GetMapping("/index")
+    public String index(Model model,
+                        @RequestParam(name="page",defaultValue = "1") int p,
+                        @RequestParam(name="size",defaultValue = "5") int s
+                        //@RequestParam(name="keyword",defaultValue = "")String kw
+    )
+    {
+        Page<Patient> page = repo.findAll(PageRequest.of(p,s));
+        model.addAttribute("patients", page.getContent());
+        model.addAttribute("pages",new int[page.getTotalPages()]);
+        model.addAttribute("currentPage",p);
+        return "patients";
     }
 }
