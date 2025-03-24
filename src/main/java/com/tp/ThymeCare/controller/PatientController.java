@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,9 +40,9 @@ public class  PatientController{
     public String home(){
         return "redirect:/index";
     }
-    @GetMapping("/formPatient")
+    @GetMapping("/form")
     public String formPatient(Model model){
         model.addAttribute("patient", new Patient());
-        return "formPatient";
+        return "form";
     }
 }

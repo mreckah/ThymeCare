@@ -2,7 +2,6 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 <head>
     <meta charset="UTF-8">
     <title>Liste patients</title>
@@ -10,7 +9,7 @@
     <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"/>
 </head>
 
-<body layout:decorate="template">
+<body>
 <div class="container mt-4" layout:fragment="content1">
     <form method="post" th:action="@{/save}">
         <div class="form-group mb-3">
