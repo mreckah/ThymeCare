@@ -26,6 +26,10 @@ public class HospitalApplication {
 			Patient p4 = new Patient(0, "Oussama", sdf.parse("1995-04-12"), "Flu", 85);
 			Patient p5 = new Patient(0, "mreckah", sdf.parse("1980-07-22"), "Diabetes", 72);
 			Patient p7 = new Patient(0, "NABBAR", sdf.parse("1975-09-10"), "Hypertension", 90);
+			Patient p6 = new Patient(0, "Oussama", sdf.parse("1995-04-12"), "Flu", 85);
+			Patient p8 = new Patient(0, "mreckah", sdf.parse("1980-07-22"), "Diabetes", 72);
+			Patient p9 = new Patient(0, "NABBAR", sdf.parse("1975-09-10"), "Hypertension", 90);
+			Patient p10 = new Patient(0, "Oussama", sdf.parse("1995-04-12"), "Flu", 85);
 
 			patientRepository.save(p1);
 			patientRepository.save(p2);
@@ -33,6 +37,10 @@ public class HospitalApplication {
 			patientRepository.save(p4);
 			patientRepository.save(p5);
 			patientRepository.save(p7);
+			patientRepository.save(p6);
+			patientRepository.save(p8);
+			patientRepository.save(p9);
+			patientRepository.save(p10);
 
 			System.out.println("✅ 3 patients added successfully!");
 		};

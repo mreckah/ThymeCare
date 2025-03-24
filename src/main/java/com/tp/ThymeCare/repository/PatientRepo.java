@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PatientRepo extends JpaRepository<Patient,Integer> {
-    Page<Patient>findByName(String keyword, Pageable pageable);
+    Page<Patient> findByNameContains(String keyword, Pageable pageable);
     @Query("select p from Patient p where p.name like :x")
     Page<Patient>check(@Param("x") String keyword, Pageable pageable);
 
