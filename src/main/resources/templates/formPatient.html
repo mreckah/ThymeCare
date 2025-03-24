@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste patients</title>
+</head>
+<body>
+<div class="container" layout:fragment="content1">
+    <form method="post" th:action="@{save}">
+        <div class="form-group">
+            <label >Patient Name</label>
+            <input type="text" class="form-control" id="patientName" name="patientName">
+            <span class="text-danger" th:text="${error}"></span>
+            <label >Date Of Birth</label>
+            <input type="date" class="form-control" id="dateofbirth" name="patientbirth">
+            <span class="text-danger" th:text="${error}"></span>
+            <label >Sick</label>
+            <input type="text" class="form-control" id="sick" name="patientsick">
+            <span class="text-danger" th:text="${error}"></span>
+            <label >Score</label>
+            <input type="text" class="form-control" id="patientscore" name="patientscore">
+            <span class="text-danger" th:text="${error}"></span>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

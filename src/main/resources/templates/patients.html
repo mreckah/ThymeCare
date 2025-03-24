@@ -18,7 +18,7 @@
             <form method="get" th:action="@{/index}">
                 <label>Search patient:</label>
                 <input type="text" name="search" placeholder="Search patient" th:value="${keyword}">
-                <button type="submit" class="btn btn-info">
+                <button type="submit" class="btn btn-info">Search
                     <i class="bi bi-search"></i>
                 </button>
             </form>
@@ -35,7 +35,7 @@
                     <td th:text="${patient.score}"></td>
                     <td>
                         <a onclick="return confirm('Click to confirm')" th:href="@{delete(id=${patient.id}, keyword=${keyword}, page=${currentPage})}"
-                           class="btn btn-danger">
+                           class="btn btn-danger">Delete
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>
