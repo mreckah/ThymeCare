@@ -36,6 +36,8 @@ ThymeCare is a web-based Java application for managing patient records. Built us
 - **Spring MVC** - Web layer
 - **Spring Data JPA** - Database integration
 - **H2 Database** - In-memory database
+-**Spring Security** - Authentication & Authorization
+-**Bootstrap** - Frontend Styling
 
 ---
 

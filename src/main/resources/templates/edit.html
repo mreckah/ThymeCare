@@ -12,7 +12,8 @@
 
 <body>
 <div class="form-group col-md-6 offset-md-3 p-4" layout:fragment="content1">
-    <form method="post" th:action="@{/save}" th:object="${patient}">
+    <form method="POST" th:action="@{/admin/save}" th:object="${patient}">
+        <input type="hidden" th:field="*{id}"/>
         <div class="form-group mb-3">
             <label for="patientName">Patient Name</label>
             <input type="text" class="form-control" id="patientName" th:field="*{name}">

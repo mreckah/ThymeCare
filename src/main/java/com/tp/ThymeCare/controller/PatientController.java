@@ -3,6 +3,7 @@ package com.tp.ThymeCare.controller;
 import com.tp.ThymeCare.model.Patient;
 import com.tp.ThymeCare.repository.PatientRepo;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @AllArgsConstructor
 public class  PatientController{
+    @Autowired
     PatientRepo repo;
 
     @GetMapping("/user/index")
@@ -47,10 +49,12 @@ public class  PatientController{
         return "form";
     }
     @PostMapping("/admin/save")
-    public String save(Model model,Patient patient){
-        repo.save(patient);
+    public String save(Model model, Patient patient) {
+            repo.save(patient);
         return "redirect:/user/index";
     }
+
+
     @GetMapping("/admin/edit/{id}")
     public String edit(Model model, @PathVariable("id") int id) {
         Patient patient = repo.findById(id).orElse(null);
@@ -60,5 +64,4 @@ public class  PatientController{
         }
         return "redirect:/user/index";
     }
-
 }
