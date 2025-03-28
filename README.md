@@ -2,11 +2,11 @@
 
 <h1 align="center">
   <a href="https://github.com/mreckah">
-    <img src="images/img_16.png" alt="ThymeCare App" style="max-height: 30px ; border-radius: 10px;">
+    <img height="120" src="images/img_16.png" alt="ThymeCare App" style="max-width: 300px ; border-radius: 10px;">
   </a>
 </h1>
 <p align="center">
-  &nbsp; 
+  &nbsp;    
   <a target="_blank" href="https://www.linkedin.com/in/nabbar-oussama/">
     <img height="20" src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" />
   </a>
@@ -55,14 +55,14 @@ ThymeCare is a web-based Java application for managing patient records. Built us
 ### **4 Edit a Patient (Edit)**!
 ![img_11.png](images%2Fimg_11.png)
 
-### **5 Roles (ADMIN/USER) **!
+### **5 Roles (ADMIN/USER)**!
 ## Admin Interface With All Access
 ![img_14.png](images%2Fimg_14.png)
 
 ## User Interface With Limited Access
 ![img_15.png](images%2Fimg_15.png)
 
-### **5 JDBC Authentification (Roles Added To Db) **!
+### **6 JDBC Authentification (Roles Added To Db)**!
 ![img_19.png](images%2Fimg_19.png)
 
 
