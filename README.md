@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <a href="https://github.com/mreckah">
-    <img src="images/img_16.png" alt="ThymeCare App" style="max-height: 80px ; border-radius: 10px;">
+    <img src="images/img_16.png" alt="ThymeCare App" style="max-height: 30px ; border-radius: 10px;">
   </a>
 </h1>
 <p align="center">
@@ -23,7 +23,7 @@
 ## 📌 Project Overview
 ThymeCare is a web-based Java application for managing patient records. Built using **Spring MVC, Thymeleaf, and Spring Data JPA**, it provides functionalities for storing and retrieving patient data efficiently.
 
-## 🚀 Features
+## 📌 Features
 -  **List Patients** (with pagination)
 -  **Search Patients** by name
 -  **Delete Patients**
@@ -61,5 +61,8 @@ ThymeCare is a web-based Java application for managing patient records. Built us
 
 ## User Interface With Limited Access
 ![img_15.png](images%2Fimg_15.png)
+
+### **5 JDBC Authentification (Roles Added To Db) **!
+![img_19.png](images%2Fimg_19.png)
 
 
