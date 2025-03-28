@@ -6,8 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import java.text.SimpleDateFormat;
 
@@ -46,6 +49,25 @@ public class HospitalApplication {
 
 			System.out.println("✅ 3 patients added successfully!");
 		};
+	}
+	@Bean
+	CommandLineRunner commandLineRunner(JdbcUserDetailsManager jdbcUserDetailsManager){
+		PasswordEncoder passwordEncoder=passwordEncoder();
+		return args -> {
+			UserDetails u1=jdbcUserDetailsManager.loadUserByUsername("mreckah");
+			if (u1==null){
+				jdbcUserDetailsManager.createUser(
+						User.withUsername("mreckah")
+								.password(passwordEncoder.encode("pass")).roles("USER").build());
+
+			}
+
+			UserDetails u2=jdbcUserDetailsManager.loadUserByUsername("oussama");
+			if (u2==null){
+			jdbcUserDetailsManager.createUser(
+					User.withUsername("oussama")
+							.password(passwordEncoder.encode("pass")).roles("ADMIN","USER").build());
+		}};
 	}
 	@Bean
 	PasswordEncoder passwordEncoder(){
