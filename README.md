@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <a href="https://github.com/mreckah">
-    <img src="images/img_16.png" alt="ThymeCare App" style="max-width: 300px; border-radius: 10px;">
+    <img src="images/img_16.png" alt="ThymeCare App" style="max-height: 80px ; border-radius: 10px;">
   </a>
 </h1>
 <p align="center">
@@ -44,8 +44,7 @@ ThymeCare is a web-based Java application for managing patient records. Built us
 ### **1 Get All Patients (Fetch Data)- Connection with databsase**
 ![img_10.png](images%2Fimg_10.png)
 ![img_5.png](images%2Fimg_5.png)
-![img_6.png](images%2Fimg_6.png)
-
+![img_17.png](images%2Fimg_17.png)
 ### **2 Post A Patients (Store Data)**
 ![img_7.png](images%2Fimg_7.png)
 ![img_12.png](images%2Fimg_12.png)
