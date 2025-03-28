@@ -15,9 +15,9 @@
     <div class="card" >
         <div class="card-header">List Patients</div>
         <div class="card-body">
-            <form method="get" th:action="@{/user/index}">
+            <form method="get" th:action="@{/user/index?keyword={keyword}&page={currentPage}}" th:object="${user}">
                 <label>Search patient:</label>
-                <input type="text" name="search" placeholder="Search patient" th:value="${keyword}">
+                <input type="text" name="keyword" placeholder="Search patient" th:value="${keyword}">
                 <button type="submit" class="btn btn-info">Search
                     <i class="bi bi-search"></i>
                 </button>
@@ -38,7 +38,8 @@
                         <i class="bi bi-pencil-fill"></i></a>
                     </td>
                     <td th:if="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')}">
-                        <a onclick="return confirm('Click to confirm')" th:href="@{/admin/delete(id=${patient.id}, keyword=${keyword}, page=${currentPage})}"
+                        <a onclick="return confirm('Click to confirm')"
+                           th:href="@{/admin/delete(id=${patient.id}, keyword=${keyword}, page=${currentPage})}"
                            class="btn btn-danger ms-0">
                             <i class="bi bi-trash"></i>
                         </a>
