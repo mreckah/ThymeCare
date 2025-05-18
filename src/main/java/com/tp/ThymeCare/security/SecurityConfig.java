@@ -35,10 +35,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        http.formLogin();
-                //.loginPage("/login")
-                //.permitAll()
-                //.defaultSuccessUrl("/index", true);
+        http.formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .defaultSuccessUrl("/index", true);
 
         http.authorizeHttpRequests()
                 .requestMatchers("/webjars/**", "/h2-console/**").permitAll()

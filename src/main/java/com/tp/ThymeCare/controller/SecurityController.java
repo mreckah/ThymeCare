@@ -9,8 +9,9 @@ public class SecurityController {
     public String denied() {
         return "denied";
     }
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }

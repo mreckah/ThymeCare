@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="template">
 <head>
     <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
@@ -16,8 +16,8 @@
         <div class="card-header">List Patients</div>
         <div class="card-body">
             <form method="get" th:action="@{/user/index?keyword={keyword}&page={currentPage}}" th:object="${user}">
-                <label>Search patient:</label>
-                <input type="text" name="keyword" placeholder="Search patient" th:value="${keyword}">
+                <label>Search Reservation:</label>
+                <input type="text" name="keyword" placeholder="Search reservation" th:value="${keyword}">
                 <button type="submit" class="btn btn-info">Search
                     <i class="bi bi-search"></i>
                 </button>
@@ -25,7 +25,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Patient ID</th> <th>Name</th> <th>Date Of Birth</th> <th>Sick</th> <th>Score</th>
+                    <th>Reservation ID</th> <th>Name</th> <th>Date</th> <th>Sick</th> <th>Score</th>
                 </tr>
                 <tr th:each="patient : ${patients}">
                     <td th:text="${patient.id}"></td>
